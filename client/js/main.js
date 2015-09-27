@@ -17,7 +17,8 @@ $(document).ready(function() {
 	
 	function displayMessages(msgArray) {
 		var msg;
-		for (var i=0; i<msgArray.length; i++) {
+		$('#msgContainer').html("");
+		for (var i=0; i<msgArray.length-1; i++) {
 			msg = JSON.parse(msgArray[i]);
 			$('#msgContainer').prepend('<div class="row"><span>' + msg.userName + ':&nbsp</span><span>' + msg.text + '</span></div>');
 		}
@@ -49,4 +50,5 @@ $(document).ready(function() {
 	}
 
 	getData();
+	setInterval(getData,1000);
 });
